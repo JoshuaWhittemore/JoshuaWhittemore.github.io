@@ -45,19 +45,21 @@ So far, so good.  I then ran my simulation 100,000 times.  The table below shows
 $$
 	\begin{array}{cc}
   \hline
-  \textbf{number of cards drawn} & \textbf{frequency} \\\hline
-  1 & 32{\small,}437 \\
-  2 & 22{\small,}039 \\
-  3 & 14{\small,}826 \\
-  4 & 10{\small,}279 \\
-  5 & 6{\small,}877 \\
-  6 & 4{\small,}615 \\
-  7 & 2{\small,}959 \\
-  8 & 2{\small,}109 \\
-  9 & 1{\small,}369 \\
+  \text{number of cards drawn} & \text{frequency} \\
+  \hline
+  1 & 32{,}437 \\
+  2 & 22{,}039 \\
+  3 & 14{,}826 \\
+  4 & 10{,}279 \\
+  5 & 6{,}877 \\
+  6 & 4{,}615 \\
+  7 & 2{,}959 \\
+  8 & 2{,}109 \\
+  9 & 1{,}369 \\
   10 & 859 \\\hline
 \end{array}
 $$
+
 
 Below is a bar chart of the same data.  The code for generating the bar chart and doing the rest of the math in this post can be found in this [Julia notebook](https://github.com/JoshuaWhittemore/Uno.jl/blob/main/notebooks/uno.ipynb).
 
@@ -84,20 +86,19 @@ Ahlgren characterizes the distribution with formulas for the mean, the probabili
 The mean of the distribution is given by
 
 $$
-\begin{align*}
+\begin{aligned}
 E(X) & =\frac{N + 1}{K + 1}\\
-\end{align*}.
+\end{aligned}.
 $$
 
-An Uno deck has 112 cards.  After drawing the top card, there are $$N=111$$ cards left, of which $$K=36$$ will match.  Please see [the fine print](#the_fine_print) below for an explanation of how I arrived at the number 36.  Applying the formula for the mean with these parameters we have:
-
+An Uno deck has 112 cards.  After drawing the top card, there are $N=111$ cards left, of which $K=36$ will match.  Please see the [fine print](#the_fine_print) below for an explanation of how I arrived at the number 36.  Applying the formula for the mean with these parameters we have:
 
 $$
-\begin{align*}
-E(X) & =\frac{36 + 1}{111 + 1}\\
-     & = \frac{37}{112}\\
-     & \approx 3.03. \tag{to 3 s.f.} \\ 
-\end{align*}
+\begin{aligned}
+E(X) & =\frac{36 + 1}{111 + 1} \\ 
+ & = \frac{37}{112} \\
+ & \approx 3.03. \qquad \text{(to 3 s.f.)} \\
+\end{aligned}
 $$
 
 So if an Uno player is forced to draw cards from the deck on their turn, they can expect to draw about 3 cards in total.
@@ -105,17 +106,22 @@ So if an Uno player is forced to draw cards from the deck on their turn, they ca
 Turning to the pmf, Ahlgren supplies the following formula:
 
 $$
-\begin{align*}
+\begin{aligned}
 P(X = x) & =\frac{N-x+1 \choose K}{N \choose K} \times \frac{K}{N-x+1}\\
-\end{align*}.
+\end{aligned}
 $$
 
-Calculating specific values for X in my scenario where $$N=111$$ and $$K=36$$, we have:
+
+
+
+
+Calculating specific values for X in my scenario where $N=111$ and $K=36$, we have:
 
 $$
 \begin{array}{cc}
   \hline
-  \textbf{number of cards drawn} & \textbf{P(X = x)} \\\hline
+  \text{x = number of cards drawn} & \text{P(X = x)} \\
+  \hline
   1 & 0.324 \\
   2 & 0.221 \\
   3 & 0.150 \\
@@ -125,7 +131,8 @@ $$
   7 & 0.030 \\
   8 & 0.020 \\
   9 & 0.013 \\
-  10 & 0.009 \\\hline
+  10 & 0.009 \\
+  \hline
 \end{array}
 $$
 
@@ -140,19 +147,19 @@ Eyeballing plots of this pmf alongside frequency counts from my simulation above
 
 So how often should I draw seven cards or more?   Ahlgren's formula for the cdf is:
 $$
-\begin{align*}
+\begin{aligned}
 P(X <= x) = F(x) & =1-\frac{N-x \choose K}{N \choose K} \\
-\end{align*}.
+\end{aligned}.
 $$ 
 
 So the probability that we'll have to draw seven cards or more is:
 
 $$
-\begin{align*}
+\begin{aligned}
 P(X >= 7) = 1 - P(X <= 6) & = 1 - F(6)\\
  & = \frac{111 - 6 \choose 36}{111 \choose 36}\\
- & \approx 0.0889 \tag{to 3 s.f.}\\
-\end{align*}
+ & \approx 0.0889  \qquad \text{(to 3 s.f.)} \\
+\end{aligned}
 $$ 
 
 So, we can expect to draw seven cards or more about 8.89% of the time.  It's fairly rare.
@@ -163,7 +170,7 @@ Well, one key assumption in the scenario is that the Uno deck is well shuffled.
 
 However, the process of playing Uno naturally sorts the cards into runs of the same color or number.  So it is very important that the cards are well shuffled between games.  Were we shuffling the cards enough?  I would guess that we were shuffling the deck about five times between games.
 
-Was that enough?  Well, there is some interesting work published on card shuffling.  In particular, [Bayer and Diaconis (1992)](https://statweb.stanford.edu/~cgates/PERSI/papers/bayer92.pdf) showed that about $$\frac{3}{2}\log_{2}(n)$$ shuffles are required to properly mix up n cards.  For an Uno deck of 112, cards, this is approximately 10.21 shuffles.  So we were not shuffling enough!
+Was that enough?  Well, there is some interesting work published on card shuffling.  In particular, [Bayer and Diaconis (1992)](https://statweb.stanford.edu/~cgates/PERSI/papers/bayer92.pdf) showed that about $\frac{3}{2}\log_{2}(n)$ shuffles are required to properly mix up n cards.  For an Uno deck of 112, cards, this is approximately 10.21 shuffles.  So we were not shuffling enough!
 
 
 ### Conclusions
@@ -204,9 +211,10 @@ A breakdown of the colored cards is shown in the table below.
 $$
 \begin{array}{cc}
   \hline
-  \textbf{card type} & \textbf{number of cards per color} \\\hline
-  '0's & 1 \\
-  '1'-'9's & 2 \\
+  \text{card type} & \text{number of cards per color} \\
+  \hline
+  \text{'0's} & 1 \\
+  \text{'1'-'9's} & 2 \\
   \text{skip} & 2 \\
   \text{reverse} & 2 \\
   \text{draw 2} & 2 \\
@@ -221,7 +229,8 @@ Now, given notes #1 and #2 above, if a 'red 1' card is the top card on the disca
 $$
 \begin{array}{cc}
   \hline
-  \textbf{card type} & \textbf{number of cards} \\\hline
+  \text{card type} & \text{number of cards} \\
+  \hline
   \text{red '0'} & 1 \\
   \text{red '1'} & 1 \\
   \text{red '2'-'9'} & 16 \\
@@ -234,5 +243,3 @@ $$
 $$
 
 Hence there are 36 cards in a full deck that match a 'red 1'.  
-
-<!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> -->
