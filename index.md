@@ -1,11 +1,13 @@
-@def title = "Josh Whittemore's Blog"
+@def title = "Joshua Whittemore's Blog"
 @def tags = ["syntax", "code"]
 
-# Josh Whittemore's blog
+# Joshua Whittemore's blog
 
 ## Posts
 
 [2024-01-01 New Year, New Blog!](/posts/2024-01-01_new-year-new-blog/index.html)
+
+[2024-01-02 Uno: Why am I drawing so many cards?](/posts/2024-01-02-uno-why-am-i-drawing-so-many-cards/index.html)
 
 ~~~
 
