@@ -175,11 +175,7 @@ Was that enough?  Well, there is some interesting work published on card shuffli
 
 ### Conclusions
 
-In retrospect, this seems like the obvious answer.  However, you might have an opponent who will claim that the reason you're drawing so many cards is down to their skill at Uno.  That may be true in part, but I would keep still shuffle the card thoroughly between games to be sure.
-
-
-
-
+In retrospect, this seems like the obvious answer.  However, you might have an opponent who will claim that the reason you're drawing so many cards is down to their skill at Uno.  That may be true in part, but I would keep still shuffle the card thoroughly between games to be sure &#128521;.
 
 
 #### The fine print
@@ -196,8 +192,10 @@ In any event, if the top card on the discard pile is a '0', the odds of drawing 
 <br />
 ~~~
 
-2\. In two-player Uno, if you play a 'skip', 'reverse' or 'draw 2' card, your opponent forfeits their turn and you start another turn.  _"Skip you"_ says my buddy when he plays one of these cards...  If you don't have another card matching that color, you will have to start drawing more cards from the deck.  
 ![action cards](/assets/2024-01-02/action-cards.png)
+
+2\. In two-player Uno, if you play a 'skip', 'reverse' or 'draw 2' card, your opponent forfeits their turn and you start another turn.  _"Skip you"_ says my buddy when he plays one of these cards...  If you don't have another card matching that color, you will have to start drawing more cards from the deck.  
+
 So if you draw one of these cards, you can play it, but you're not really off the hook.  You will have to keep drawing more cards.  Hence, if one of these cards is drawn, I do not consider them to be a match.  There are further caveats on this, but this is far enough down the rabbit hole I think.
 
 ~~~
@@ -214,7 +212,7 @@ $$
   \text{card type} & \text{number of cards per color} \\
   \hline
   \text{'0's} & 1 \\
-  \text{'1'-'9's} & 2 \\
+  \text{'1'-'9's} & 2 \times 8 = 16 \\
   \text{skip} & 2 \\
   \text{reverse} & 2 \\
   \text{draw 2} & 2 \\
