@@ -231,7 +231,7 @@ $$
   \hline
   \text{red '0'} & 1 \\
   \text{red '1'} & 1 \\
-  \text{red '2'-'9'} & 16 \\
+  \text{red '2'-'9'} & 2 \times 8 = 16 \\
   \text{blue, green and yellow '1's} & 6 \\
   \text{wild} & 12 \\
   \hline
