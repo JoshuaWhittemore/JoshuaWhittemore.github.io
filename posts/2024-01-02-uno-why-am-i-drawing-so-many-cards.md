@@ -77,7 +77,7 @@ In Uno, if a card is drawn and it does not match, on the next draw the deck has 
 
 ###  The right distribution
 
-So, if the Geometric distribution was not an exact fit for this scenario, I wanted to find one that was.  I searched the internet a bit and I found [this paper](https://web.archive.org/web/20230518151533/http://arxiv.org/abs/1404.1161) by John Ahlgren (2014) which describes this situation exactly.
+So, if the Geometric distribution was not an exact fit for this scenario, I wanted to find one that was.  I searched the internet a bit and I found [this paper](https://web.archive.org/web/20230518151533/http://arxiv.org/abs/1404.1161)[^1] by John Ahlgren (2014) which describes this situation exactly.
 
 Instead of cards, Ahlgren describes a scenario in which there are N objects in an urn, of which K are 'good'.  The question is then how many draws from the urn are necessary to get the first good object.
 
@@ -170,7 +170,7 @@ Well, one key assumption in the scenario is that the Uno deck is well shuffled.
 
 However, the process of playing Uno naturally sorts the cards into runs of the same color or number.  So it is very important that the cards are well shuffled between games.  Were we shuffling the cards enough?  I would guess that we were shuffling the deck about five times between games.
 
-Was that enough?  Well, there is some interesting work published on card shuffling.  In particular, [Bayer and Diaconis (1992)](https://statweb.stanford.edu/~cgates/PERSI/papers/bayer92.pdf) showed that about $\frac{3}{2}\log_{2}(n)$ shuffles are required to properly mix up n cards.  For an Uno deck of 112, cards, this is approximately 10.21 shuffles.  So we were not shuffling enough!
+Was that enough?  Well, there is some interesting work published on card shuffling.  In particular, [Bayer and Diaconis (1992)](https://statweb.stanford.edu/~cgates/PERSI/papers/bayer92.pdf) showed that about $\frac{3}{2}\log_{2}(n)$ shuffles are required to properly mix up n cards[^2].  For an Uno deck of 112, cards, this is approximately 10.21 shuffles.  So we were not shuffling enough!
 
 
 ### Conclusions
@@ -241,3 +241,10 @@ $$
 $$
 
 Hence there are 36 cards in a full deck that match a 'red 1'.  
+
+
+### References
+
+[^1]: Ahlgren, J. (2014, April 4). The Probability Distribution for Draws Until First Success Without Replacement. ArXiv.org. https://doi.org/10.48550/arXiv.1404.1161
+
+[^2]: Bayer, D. and Diaconis, P. (1992) Trailing the Dovetail Shuffle to Its Lair. The Annals of Applied Probability, 2 294-313.  https://doi.org/10.1214/aoap/1177005705
